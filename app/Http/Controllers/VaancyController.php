@@ -66,6 +66,7 @@ class VaancyController extends Controller
      */
     public function edit($id)
     {
+        //
     }
 
     /**
