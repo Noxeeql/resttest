@@ -28,7 +28,6 @@ class VaancyController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -89,6 +88,7 @@ class VaancyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Vacancy::findOrFail($id);
+        $item->delete();
     }
 }
