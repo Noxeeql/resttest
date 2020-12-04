@@ -19,3 +19,4 @@ Route::get('/', function () {
 
 Route::get('/rest', [\App\Http\Controllers\VaancyController::class, 'index'])->name('home');
 Route::get('show/{id}', [\App\Http\Controllers\VaancyController::class, 'show'])->name('home');
+Route::get('delete/{id}', [\App\Http\Controllers\VaancyController::class, 'destroy'])->name('delete');
