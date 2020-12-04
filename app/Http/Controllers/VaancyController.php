@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vacancy;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 
 class VaancyController extends Controller
@@ -14,11 +15,12 @@ class VaancyController extends Controller
      */
     public function index()
     {
-        $items = Vacancy::all();
+        $items = new Vacancy;
+        return view('messages', ['data' => $items->all()]);
 
         // $items->toArray();
 
-        return response()->json($items);
+        // return response()->json($items);
     }
 
     /**
@@ -26,7 +28,7 @@ class VaancyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($new)
     {
         //
     }
@@ -51,10 +53,12 @@ class VaancyController extends Controller
     public function show($id)
     {
         $item = Vacancy::findOrFail($id);
+        return view('onemessage', ['data' => $item->find($id)]);
+        // $item = Vacancy::findOrFail($id); - конечный результат
 
         // $items->toArray();
 
-        return response()->json($item);
+        // return response()->json($item); - конечный результат
         // return view('home', ['vacancy' => Vacancy::findOrFail($id)]);
     }
 
@@ -64,8 +68,11 @@ class VaancyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Vacancy $id)
     {
+        $item = Vacancy::find($id);
+
+        return view('update-message', ['data' => $item->find($id)]);
     }
 
     /**
@@ -75,9 +82,20 @@ class VaancyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, ContactRequest $ref)
     {
-        //
+        $newVacancy = Vacancy::find($id);
+        $newVacancy->title = $ref->input('title');
+        $newVacancy->min_reward = $ref->input('min_reward');
+        $newVacancy->mid_reward = $ref->input('mid_reward');
+        $newVacancy->max_reward = $ref->input('max_reward');
+        $newVacancy->text = $ref->input('text');
+        // $newVacancy->decs = $ref->input('desc');
+        // $newVacancy->requirements = $ref->input('requirements');
+
+        $newVacancy->save();
+
+        return redirect()->route('home');
     }
 
     /**
@@ -88,6 +106,7 @@ class VaancyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Vacancy::find($id)->delete();
+        return redirect()->route('home');
     }
 }
