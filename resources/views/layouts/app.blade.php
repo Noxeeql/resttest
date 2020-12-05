@@ -23,9 +23,9 @@
       <div class="col-8">
         @yield('content')
       </div>
-      {{-- <div class="col-4">
+      <div class="col-4">
       @include('inc.aside')
-      </div> --}}
+      </div> 
     </div>
   </div>
 
