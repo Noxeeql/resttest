@@ -26,9 +26,9 @@ class ContactRequest extends FormRequest
         return [
             'title' => 'required',
             'text' => 'required|string',
-            'mid_reward' => 'required|integer',
-            'mid_reward' => 'required|integer',
-            'max_reward' => 'required|integer',
+            // 'mid_reward' => 'required|integer',
+            // 'mid_reward' => 'required|integer',
+            // 'max_reward' => 'required|integer',
             //    'subject' =>'required|min:5|max:50',
             //    'message' =>'required|min:15|max:500'
         ];

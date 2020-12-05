@@ -3,7 +3,7 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark" href="{{  route('home')}}">Главная</a>
     {{-- <a class="p-2 text-dark" href="{{  route('about')}}">Про нас</a> --}}
-    {{-- <a class="p-2 text-dark" href="{{  route('contact')}}">Контакты</a> --}}
+    <a class="p-2 text-dark" href="{{  route('contact')}}">Новая вакансия</a>
     {{-- <a class="p-2 text-dark" href="{{  route('contact-data')}}">Сообщения</a> --}}
   </nav>
 </div>

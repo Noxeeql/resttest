@@ -4,27 +4,42 @@
 
 @section('content')
   <h1>Контакты </h1>
-  
+
   <form action="{{ route('contact-form') }}" method="post">
     @csrf
     <div class="form-group">
-      <label for="name">Введите имя</label>
-      <input type="text" name="name" placeholder="Введите имя" id="name" class="form-control">
+      <label for="title">Введите наименование</label>
+      <input type="text" name="title" placeholder="Введите имя" id="title" class="form-control">
     </div>
 
     <div class="form-group">
-      <label for="email">Введите адрес электронной почты</label>
-      <input type="text" name="email" placeholder="Введите адрес электронной почты" id="email" class="form-control">
+      <label for="text">Введите текст</label>
+      <input type="text" name="text" placeholder="Введите текст" id="text" class="form-control">
+    </div>
+
+   <div class="form-group">
+      <label for="min_reward">Минимальное вознагрождение</label>
+      <input type="integer" name="min_reward" placeholder="Тема сообщения" id="min_reward" class="form-control">
     </div>
 
     <div class="form-group">
-      <label for="subject">Тема сообщения</label>
-      <input type="text" name="subject" placeholder="Тема сообщения" id="subject" class="form-control">
+      <label for="mid_reward">Среднее вознагрождение</label>
+      <input type="integer" name="mid_reward" placeholder="Тема сообщения" id="mid_reward" class="form-control">
     </div>
 
     <div class="form-group">
-      <label for="message">Текст сообщения</label>
-      <textarea name="message" id="message" class="form-control" placeholder="Введите сообщение"></textarea>
+      <label for="max_reward">Максимальное вознагрождение</label>
+      <input type="integer" name="max_reward" placeholder="Тема сообщения" id="max_reward" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="desc">Введите текст</label>
+      <input type="text" name="desc" placeholder="Введите текст" id="desc" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label for="requirements">Введите текст</label>
+      <input type="text" name="requirements" placeholder="Введите текст" id="requirements" class="form-control">
     </div>
 
     <button type="submit" class="btn btn-success">Отправить</button>

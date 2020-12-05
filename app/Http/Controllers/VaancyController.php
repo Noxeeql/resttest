@@ -30,7 +30,8 @@ class VaancyController extends Controller
      */
     public function create($new)
     {
-        //
+        $new = new Vacancy();
+        return view('contact-form', ['data' => $new->all()]);
     }
 
     /**
@@ -39,9 +40,20 @@ class VaancyController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactRequest $req)
     {
-        //
+        $newVacancy = new Vacancy;
+        $newVacancy->title = $req->input('title');
+        $newVacancy->min_reward = $req->input('min_reward');
+        $newVacancy->mid_reward = $req->input('mid_reward');
+        $newVacancy->max_reward = $req->input('max_reward');
+        $newVacancy->text = $req->input('text');
+        $newVacancy->desc = $req->input('desc');
+        $newVacancy->requirements = $req->input('requirements');
+
+        $newVacancy->save();
+
+        return redirect()->route('home');
     }
 
     /**
