@@ -87,13 +87,7 @@ class VaancyController extends Controller
         return view('update-message', ['data' => $item->find($id)]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update($id, ContactRequest $ref)
     {
         $newVacancy = Vacancy::find($id);
