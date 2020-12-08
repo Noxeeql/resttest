@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+  {{-- @include('inc.nav') --}}
   @include('inc.header')
 
     @if(Request::is('/'))
@@ -25,7 +26,7 @@
       </div>
       <div class="col-4">
       @include('inc.aside')
-      </div> 
+      </div>
     </div>
   </div>
 

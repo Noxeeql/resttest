@@ -52,8 +52,10 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::findOrFail($id);
-        return view('onenews', ['data' => $news->find($id)]);
+        $news = News::findOrFail($id)->with('comments');
+        return view('onenews', [
+            'data' => $news->find($id)
+        ]);
     }
 
     /**

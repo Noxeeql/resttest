@@ -15,11 +15,11 @@ class Comment extends Model
 
     public function news()
     {
-        return $this->hasOne(News::class);
+        return $this->belongsTo(News::class);
     }
 
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 }
