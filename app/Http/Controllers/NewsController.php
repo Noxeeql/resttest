@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\News;
+use App\Models\User;
 use app\Models\Comment;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactRequest;
@@ -53,8 +54,10 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::findOrFail($id)->with('comments');
+        $comment = User::find($id)->with('comments');
         return view('onenews', [
-            'data' => $news->find($id)
+            'data' => $news->find($id),
+            'user' => $comment->find($id)
         ]);
     }
 

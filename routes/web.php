@@ -39,3 +39,5 @@ Route::get('news/submit', [\App\Http\Controllers\NewsController::class, 'store']
 Route::get('/news/{id}/edit', [\App\Http\Controllers\NewsController::class, 'edit'])->name('edit-news');
 Route::post('news/{id}/update', [\App\Http\Controllers\NewsController::class, 'update'])->name('update-news');
 Route::delete('news/{id}/delete', [\App\Http\Controllers\NewsController::class, 'delete'])->name('destroy-news');
+
+Route::post('/comment/store', [\App\Http\Controllers\CommentController::class, 'store'])->name('comment.add');

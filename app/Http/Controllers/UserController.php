@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\News;
-use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class CommentController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +14,11 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        $users = DB::table('users')->get();
+
+        foreach ($users as $user) {
+            echo $user->name;
+        }
     }
 
     /**
@@ -23,10 +26,9 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        $newComment = new Comment;
-        $newComment = Comment::create($request->all());
+        //
     }
 
     /**
@@ -37,13 +39,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $comment = new Comment;
-        $comment->text = $request->get('text');
-        // $comment->user()->associate($request->user());
-        $post = News::find($request->get('news_id'));
-        $post->comments()->save($comment);
-
-        return back();
+        //
     }
 
     /**

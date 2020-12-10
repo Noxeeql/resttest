@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Comment extends Model
 {
     protected $fillable = ['*'];
+    public $timestamps = false;
     use HasFactory;
 
     public function news()
